@@ -1,33 +1,33 @@
 public class Ship {
     private String nameShip;
-    private String typeShip;
+    private ModelBateau modelBateau;
     private boolean operation;
     private Direction direction;
-
-    private Ship(){
-    }
-
-    public Ship(String nameShip, String typeShip, boolean operation, Direction direction) {
-        this.nameShip = nameShip;
-        this.typeShip = typeShip;
-        this.operation = operation;
-        this.direction = direction;
-    }
+    private Coordonnee coordonnee;
 
     public String getNameShip() {
         return nameShip;
     }
 
+    public Ship(String nameShip, ModelBateau modelBateau, Direction direction,Coordonnee coordonnee, boolean operation) {
+        this.nameShip = nameShip;
+        this.modelBateau = modelBateau;
+        this.operation = true ;
+        this.direction = direction;
+        this.coordonnee=coordonnee;
+    }
+
+
     public void setNameShip(String nameShip) {
         this.nameShip = nameShip;
     }
 
-    public String getTypeShip() {
-        return typeShip;
+    public ModelBateau getModelBateau() {
+        return modelBateau;
     }
 
-    public void setTypeShip(String typeShip) {
-        this.typeShip = typeShip;
+    public void setModelBateau(ModelBateau modelBateau) {
+        this.modelBateau = modelBateau;
     }
 
     public boolean isOperation() {
@@ -45,4 +45,6 @@ public class Ship {
     public void setDirection(Direction direction) {
         this.direction = direction;
     }
+
+
 }

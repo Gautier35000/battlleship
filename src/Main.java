@@ -37,7 +37,7 @@ public class Main {
                 System.out.println("Veuillez entrer les coordonnées du bateau "+j);
                 coordonnee = sc.nextLine();
             }
-            while(!hidingBoard.map().get(coordonnee).equals("0")){
+            while(!hidingBoard.map().get(coordonnee).equals("caseVide")){
                 System.out.println("Un bateau est déjà sur la case");
                 System.out.println("Veuillez entrer les coordonnées du bateau "+j);
                 coordonnee = sc.nextLine();
@@ -46,14 +46,18 @@ public class Main {
             System.out.println("Veuillez entrer la direction du bateau "+j);
 
             Direction direction=getDirection();
+            int longueurBateau=model.getSize();
+            String coordonneeX=coordonnee.substring(0,1);
             switch (direction){
                 case WEST:
-                    int longueurBateau=model.getSize();
-                    String coordonneeX=coordonnee.substring(0,1);
-
-
                     if(tableauLettre.indexOf(coordonneeX)-longueurBateau<0){
                         System.out.println("Le bateau dépasse de la grille");
+                        break;
+                    }
+                case EAST:
+                    if(tableauLettre.indexOf(coordonneeX)+longueurBateau>tableauLettre.size()) {
+                        System.out.println("Le bateau dépasse de la grille");
+                        break;
                     }
             }
 
